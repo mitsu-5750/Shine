@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="songs.js"></script>
+    <link rel="stylesheet" href="bin/css/index.css">
+    <title>Skyty</title>
+</head>
+
+<body>
+    <img id="BACK">
+    <div id="BULR"></div>
+
+    <audio src="se/ue.mp3" class="se"></audio>
+    <audio src="se/ok.mp3" class="se"></audio>
+    <audio src="se/success.mp3" class="se"></audio>
+    <audio src="se/no.mp3" class="se"></audio>
+
+    <audio id="SONG_DEMO" loop></audio>
+
+    <div class="allow"></div>
+    <div class="nav">
+        ESC: 設定<br>
+        矢印: 各操作<br>
+        Space: 決定
+    </div>
+
+    <div id="SONG">
+        <div id="SONG_SLIDE"></div>
+    </div>
+
+    <div id="SONG_JACKET">
+        <img id="SONG_IMG">
+    </div>
+    <div id="FULL"><span>FULL COMBO</span></div>
+    <p id="LEVEL"><span class="dif">MASTER</span><span class="lev">Lv.1<span></p>
+    <p id="SCORE">
+        <span class="score_name">rank</span><span class="score_int">0</span><br>
+        <span class="score_name">score</span><span class="score_int">0</span><br>
+        <span class="score_name">max combo</span><span class="score_int">0</span><br>
+        <span class="score_name">perfect</span><span class="score_int">0</span><br>
+        <span class="score_name">good</span><span class="score_int">0</span><br>
+        <span class="score_name">bad</span><span class="score_int">0</span><br>
+        <span class="score_name">miss</span><span class="score_int">0</span><br>
+    </p>
+
+    <div id="SETING">
+        <p>環境設定</p>
+        <p>入力設定</p>
+        <p>オート</p>
+        <p>背景透明度</p>
+    </div>
+</body>
+<script src="bin/js/NoteClass.js"></script>
+<script src="bin/js/main.js"></script>
+
+</html>

@@ -1,0 +1,169 @@
+@font-face {
+    font-family: 'test';
+    src: url("img/font.otf");
+}
+
+html {
+    font-size: 1.2vw;
+    font-family: 'test';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    user-select: none;
+    /* cursor: none; */
+    overflow: hidden;
+    background-color: #000;
+}
+
+#backImage, video {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .5;
+}
+
+#parentLine {
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    bottom: 17vw;
+    left: 0;
+    margin: auto;
+    width: 40vw;
+    height: 140%;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .7));
+    transform-origin: bottom;
+    transform: perspective(12rem) rotateX(12deg) scale(2) scaleY(1.5);
+    box-shadow: 0 5rem 3rem rgba(0, 0, 0, .7);
+    transition: .1s background-color;
+    overflow-y: clip;
+}
+
+.line {
+    position: relative;
+    width: calc(100% / 6);
+    height: 100%;
+    transition: .1s background-color;
+}
+
+.line::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: calc(100% / 6);
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, .15));
+}
+
+.point::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 7rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: .5rem;
+    height: .5rem;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.bigLine {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#judgeBar {
+    position: absolute;
+    bottom: 3rem;
+    background-color: #fff;
+    opacity: .3;
+    width: 100%;
+    height: 1rem;
+}
+
+.note {
+    position: absolute;
+    left: 0;
+    display: block;
+    bottom: 110%;
+    width: 100%;
+    z-index: 10;
+    transform: scaleY(1.2);
+}
+
+.bigNote {
+    position: absolute;
+    bottom: 110%;
+    width: 100%;
+    height: .5rem;
+    background-color: rgb(255, 255, 145);
+    opacity: .5;
+    box-shadow: #fff 0 0 1rem;
+    border-radius: 1rem;
+    transform: translateY(-2rem);
+}
+
+.effect {
+    position: absolute;
+    bottom: 1.8rem;
+    width: 100%;
+    opacity: 0;
+}
+
+#judge {
+    position: absolute;
+    bottom: 6rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 10rem;
+    text-align: center;
+    color: white;
+    z-index: 10;
+}
+
+#combo {
+    position: fixed;
+    font-size: 5rem;
+    top: 10rem;
+    right: 10rem;
+    color: #fff;
+    text-align: center;
+}
+
+@keyframes noteEffect {
+    0% {
+        transform: scale(3);
+        opacity: 1;
+        filter: drop-shadow(0 0 10px cyan);
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+        filter: drop-shadow(0 0 0px #fff);
+    }
+}
+
+@keyframes judgeEffect {
+    0% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    10% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+    }
+}

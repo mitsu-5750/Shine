@@ -1,0 +1,286 @@
+@font-face {
+    font-family: 'test';
+    src: url("data/img/font.ttf");
+}
+
+html {
+    font-size: 1.2vw;
+}
+
+* {
+    font-size: 1rem;
+    margin: 0;
+    font-family: 'test';
+    color: white;
+}
+
+body {
+    background: #000;
+    overflow: hidden;
+}
+
+#BACK {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: .4;
+}
+
+#BULR {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0);
+    z-index: 10;
+    transition: 1s;
+    visibility: hidden;
+}
+
+#SONG {
+    position: absolute;
+    height: 35rem;
+    width: 30rem;
+    top: 0;
+    bottom: 0;
+    left: 3rem;
+    margin: auto;
+    overflow: hidden;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(5px);
+    border-radius: .5rem;
+}
+
+#SONG_SLIDE {
+    position: absolute;
+    top: -7rem;
+    transform: translateY(-0.5rem);
+    height: 100%;
+    width: 100%;
+    transition: 0s top;
+}
+
+.song-title {
+    height: 6rem;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    line-height: 6rem;
+    transition: .4s background;
+    vertical-align: middle;
+}
+
+.song-title img {
+    width: 4rem;
+    height: 4rem;
+    margin-right: 1.5rem;
+    margin-bottom: .3rem;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 .5rem;
+    vertical-align: middle;
+    object-fit: cover;
+    border-radius: .2rem;
+}
+
+.allow {
+    position: relative;
+    top: calc(50vh - 1rem);
+    left: 1rem;
+    width: 0;
+    border-left: 1rem solid #fff;
+    border-top: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+    animation: .5s ease-in 1s infinite alternate forwards running allow;
+}
+
+@keyframes allow {
+    0% {
+        left: 1.2rem;
+    }
+    100% {
+        left: .5rem;
+    }
+}
+
+#SONG_JACKET {
+    position: absolute;
+    top: 0;
+    bottom: 5rem;
+    right: 23rem;
+    margin: auto;
+    width: 20rem;
+    height: 20rem;
+    background-color: #fff;
+    transform: rotateZ(45deg);
+    overflow: hidden;
+    box-shadow: white 0px 0px .5rem;
+}
+
+@keyframes shadow {
+    0% {
+        box-shadow: white 0px 0px 5rem;
+    }
+    100% {
+        box-shadow: white 0px 0px 7rem;
+    }
+}
+
+#SONG_JACKET img {
+    transform: rotateZ(-45deg);
+    position: absolute;
+    top: -21%;
+    left: -21%;
+    width: 142%;
+    height: 142%;
+    object-fit: cover;
+}
+
+#LEVEL {
+    position: absolute;
+    font-size: 2rem;
+    width: 28rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    top: 34.5rem;
+    bottom: 3rem;
+    right: 19rem;
+    margin: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+    backdrop-filter: blur(5px);
+    border-radius: .5rem;
+}
+
+#LEVEL::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: .5rem;
+    bottom: 1rem;
+    border-left: .5rem solid #fff;
+    border-top: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+}
+
+#LEVEL::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: .5rem;
+    bottom: 1rem;
+    border-right: .5rem solid #fff;
+    border-top: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+}
+
+#LEVEL span {
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+.dif {
+    width: 40%;
+    text-align: right;
+    font-weight: bold;
+}
+
+.lev {
+    width: 40%;
+    text-align: left;
+}
+
+.select {
+    background-color: white;
+    color: #000;
+}
+
+#SCORE {
+    position: absolute;
+    width: 13rem;
+    height: 10.5rem;
+    top: 34.5rem;
+    bottom: 10.5rem;
+    right: 3rem;
+    margin: auto;
+    line-height: 1.5rem;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+    backdrop-filter: blur(5px);
+    border-radius: .5rem;
+}
+
+.score_name {
+    display: inline-block;
+    width: 7rem;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+.score_int {
+    display: inline-block;
+    width: 3rem;
+}
+
+#FULL {
+    position: absolute;
+    color: #222;
+    text-align: center;
+    top: 0;
+    bottom: -10rem;
+    right: 3rem;
+    margin: auto;
+    height: 2rem;
+    padding: 0 1rem;
+    background: radial-gradient(#fff, rgba(255, 255, 255, .2));
+    display: none;
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    border-radius: .5rem;
+    line-height: 2rem;
+    font-weight: bold;
+}
+
+.nav {
+    text-align: right;
+    position: absolute;
+    top: 4rem;
+    bottom: 0;
+    right: 3rem;
+    margin: auto;
+}
+
+#SETING {
+    position: absolute;
+    top: 0;
+    right: 100vw;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to right, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(5px);
+    transition: .2s right;
+    color: #000;
+    z-index: 10;
+}
+
+#SETING p {
+    color: #222;
+    margin-left: 3rem;
+    margin-top: 3rem;
+    width: 10rem;
+}
+
+#SETING span {
+    color: #222;
+}
+
+.MASTER {
+    color: magenta;
+}
+
+.HARD {
+    color: yellow;
+}
+
+.NORMAL {
+    color: cyan;
+}
