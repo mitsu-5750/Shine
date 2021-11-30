@@ -16,7 +16,7 @@ class Note {
             this.el.classList.add('bigNote');
         } else {
             this.el = document.createElement('img');
-            this.el.src = `../../notes/${data.type}${this.isDouble}.png`;
+            this.el.src = `bin/notes/${data.type}${this.isDouble}.png`;
             this.el.classList.add('note');
         }
         line[this.lane].insertAdjacentElement('afterbegin', this.el);

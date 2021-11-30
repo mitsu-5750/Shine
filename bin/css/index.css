@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
     font-family: 'test';
     src: url("data/img/font.ttf");
-}
+} */
 
 html {
     font-size: 1.2vw;
@@ -10,7 +10,7 @@ html {
 * {
     font-size: 1rem;
     margin: 0;
-    font-family: 'test';
+    font-family: '游ゴシック';
     color: white;
 }
 
@@ -25,6 +25,7 @@ body {
     height: 100vh;
     object-fit: cover;
     opacity: .4;
+    filter: blur(10px);
 }
 
 #BULR {

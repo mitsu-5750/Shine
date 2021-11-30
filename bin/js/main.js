@@ -1,6 +1,5 @@
 window.addEventListener('load', startUp);
 
-
 let score = { rank: null, board: 0, max_combo: 0, combo: 0, perfect: 0, good: 0, bad: 0, miss: 0 };
 let key = ['d', 'f', 'g', 'h', 'j', 'k', ' '];
 let keyPush = [false, false, false, false, false, false, false], keyDown = [false, false, false, false, false, false, false], keyUp = [true, true, true, true, true, true, true];
@@ -17,8 +16,6 @@ let lineNotes = [
 let line = document.querySelectorAll('.line');
 let parentLine = document.getElementById('parentLine');
 let musicSource = document.getElementById('musicSource');
-let notesData = noteCompile();
-let bpm = bpmCompile();
 let gameStatus = 'stop';
 
 /**
@@ -50,18 +47,16 @@ function setupKeyEvent() {
  * スタートアップ
  */
 function startUp() {
-    let dif = (window.location.href.split('/').pop().replace(/.html/g, '').toUpperCase());
-    document.querySelector('title').innerHTML = `${data.name} | ${dif}`;
+    musicSource.src = `songData/${getSong('n')}/item.ogg`;
+
+    notesData = noteCompile();
+    bpm = bpmCompile();
+
+    document.querySelector('title').innerHTML = `${data.name} | ${getSong('d')}`;
+    document.getElementById('backImage').src = `songData/${getSong('n')}/back.jpg`;
 
     setupKeyEvent();
     document.addEventListener('keydown', (e) => musicStart(e));
-}
-
-/**
- * パラメータから曲を参照
- */
-function getSong() {
-    return new URL(window.location.href).searchParams.get('n');
 }
 
 /**
@@ -140,7 +135,7 @@ function auto() {
  */
 function takeNote(judge, i) {
     if (i == 6) {
-        new Audio('../../se/bn.mp3').play();
+        new Audio('bin/audio/bn.mp3').play();
         if (judge != 'bad') {
             for (let j = 0; j < effect.length; j++) {
                 effect[j].style = {};
@@ -149,7 +144,7 @@ function takeNote(judge, i) {
         } else
             combo.innerHTML = 0;
     } else {
-        new Audio(`../../se/${judge}.ogg`).play();
+        new Audio(`bin/audio/${judge}.ogg`).play();
         if (judge != 'bad') {
             effect[i].style = {};
             window.requestAnimationFrame(() => effect[i].style.animation = 'noteEffect .2s alternate 1 running');
@@ -240,14 +235,14 @@ function musicStart(e) {
  */
 function musicReset(e) {
     if (e.key == 'Escape')
-        location.href = '../../../index.html';
+        location.href = 'index.html';
 }
 
 /**
  * 判定のエフェクト
  */
 function viewJudgeEffect(x) {
-    judgeEl.src = `../../img/${x}.png`;
+    judgeEl.src = `bin/img/${x}.png`;
     judgeEl.style = {};
     combo.style = {};
     window.requestAnimationFrame(() => {
@@ -256,4 +251,18 @@ function viewJudgeEffect(x) {
     });
 
     combo.innerHTML++;
+}
+
+/**
+ * プレビュー用
+ */
+function preview() {
+    if (data.preview > 0) {
+        setTimeout(() => {
+            for (let i = 0; i < lineNotes.length; i++)
+                for (let j = 0; j < lineNotes[i].length; j++)
+                    lineNotes[i][j].el.remove();
+            lineNotes = [[], [], [], [], [], [], []]
+        }, 1000)
+    }
 }

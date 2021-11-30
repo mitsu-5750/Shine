@@ -6,28 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bin/css/main.css">
+    <script src="bin/js/loadSong.js"></script>
     <title>Skyty</title>
 </head>
 
 <body>
-    <audio src="item.ogg" id="musicSource"></audio>
-    <img src="back.jpg" id="backImage">
+    <audio id="musicSource"></audio>
+    <img id="backImage">
 
     <main>
         <div id="parentLine">
-            <div class="line"><img src="../../img/effect.png" class="effect"></div>
-            <div class="line point"><img src="../../img/effect.png" class="effect"></div>
-            <div class="line"><img src="../../img/effect.png" class="effect"></div>
-            <div class="line"><img src="../../img/effect.png" class="effect"></div>
-            <div class="line point"><img src="../../img/effect.png" class="effect"></div>
-            <div class="line"><img src="../../img/effect.png" class="effect"></div>
+            <div class="line"><img src="bin/img/effect.png" class="effect"></div>
+            <div class="line point"><img src="bin/img/effect.png" class="effect"></div>
+            <div class="line"><img src="bin/img/effect.png" class="effect"></div>
+            <div class="line"><img src="bin/img/effect.png" class="effect"></div>
+            <div class="line point"><img src="bin/img/effect.png" class="effect"></div>
+            <div class="line"><img src="bin/img/effect.png" class="effect"></div>
 
             <div class="line bigLine"></div>
 
             <div id="judgeBar"></div>
+
+            <img id="judge">
         </div>
+
+        <p id="combo">0</p>
     </main>
 
+<script src="bin/js/NoteClass.js"></script>
 <script src="bin/js/main.js"></script>
 </body>
 

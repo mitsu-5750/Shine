@@ -1,11 +1,11 @@
-@font-face {
+/* @font-face {
     font-family: 'test';
     src: url("img/font.otf");
-}
+} */
 
 html {
     font-size: 1.2vw;
-    font-family: 'test';
+    font-family: '游ゴシック';
 }
 
 * {
@@ -15,7 +15,7 @@ html {
 
 body {
     user-select: none;
-    /* cursor: none; */
+    cursor: none;
     overflow: hidden;
     background-color: #000;
 }

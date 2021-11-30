@@ -4,7 +4,7 @@ const LEVEL = document.getElementById('LEVEL');
 let level = ['NORMAL', 'HARD', 'MASTER'];
 let dir_level = ['normal', 'hard', 'master'];
 for (let songs = 0; songs < SONG_DATA.length; songs++)
-    SONG_SLIDE.insertAdjacentHTML('afterbegin', `<p class="song-title"><img src="data/_songdata/${SONG_DATA[songs].title}/jacket.jpg" />${SONG_DATA[songs].title}</p>`);
+    SONG_SLIDE.insertAdjacentHTML('afterbegin', `<p class="song-title"><img src="songData/${SONG_DATA[songs].title}/jacket.jpg" />${SONG_DATA[songs].title}</p>`);
 
 let song_idx = 0;
 if (localStorage.getItem('song_idx')) song_idx = localStorage.getItem('song_idx');
@@ -16,9 +16,9 @@ function set_song(x) {
     let song_img = document.getElementById('SONG_IMG');
     let song_demo = document.getElementById('SONG_DEMO');
 
-    document.getElementById('BACK').setAttribute('src', `data/_songdata/${SONG_DATA[x].title}/back.jpg`);
-    song_img.setAttribute('src', `data/_songdata/${SONG_DATA[x].title}/jacket.jpg`);
-    song_demo.setAttribute('src', `data/_songdata/${SONG_DATA[x].title}/demo.mp3`);
+    document.getElementById('BACK').setAttribute('src', `songData/${SONG_DATA[x].title}/jacket.jpg`);
+    song_img.setAttribute('src', `songData/${SONG_DATA[x].title}/jacket.jpg`);
+    song_demo.setAttribute('src', `songData/${SONG_DATA[x].title}/demo.mp3`);
     song_demo.play();
     LEVEL.innerHTML = `<span class="dif ${level[level_idx]}">${level[level_idx]}</span> <span class="lev">Lv.${SONG_DATA[song_idx].level[level_idx]}<span>`;
     document.getElementById('SONG_JACKET').style.animation = (151 - SONG_DATA[song_idx].level[level_idx] * 10) * 0.01 + 's infinite alternate shadow';
@@ -112,7 +112,7 @@ window.addEventListener('keydown', (e) => {
             blur.style.backdropFilter = 'blur(10px)';
             blur.style.visibility = 'visible';
             setTimeout(() => {
-                location.href = `data/_songdata/${SONG_DATA[song_idx].title}/${dir_level[level_idx]}.html`;
+                location.href = `main.html?n=${SONG_DATA[song_idx].title}&d=${dir_level[level_idx]}`;
             }, 2000);
             setTimeout(() => {
                 blur.style.backgroundColor = '#000';
