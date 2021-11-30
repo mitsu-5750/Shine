@@ -3,7 +3,8 @@ var data = {
 	back: 0.6,
 	level: 11,
 	bpm: 158,
-	offset: 0.79,
+	offset: 0.8,
+	// auto: true,
 	music_offset: 0.1,
 	play_offset: 1000,
 	def: function () {
